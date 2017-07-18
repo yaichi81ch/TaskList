@@ -1,0 +1,13 @@
+<h1>タスク作成ページ</h1>
+
+<%= form_for(@task) do |f| %>
+  <%= f.label :content, 'やるべきこと' %>
+  <%= f.text_field :content %> 
+  <%= f.label :duedate, 'いつまでに？' %>
+  <%= f.date_field :duedate %> 
+  
+  <%= f.submit '追加' %>
+<% end %>
+
+<%= link_to 'タスク一覧ページに戻る', tasks_path %>
+  

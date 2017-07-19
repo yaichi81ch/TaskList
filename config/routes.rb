@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   # get 'tasks', to: 'tasks#index'
   # get 'tasks/new', to: 'tasks#index'
   # put 'tasks/:id/edit' to: 'tasks#edit'
+  root to: 'tasks#index'
   resources :tasks
 end

@@ -1,0 +1,48 @@
+[1mdiff --git a/app/controllers/tasks_controller.rb b/app/controllers/tasks_controller.rb[m
+[1mindex a4612ad..698b768 100644[m
+[1m--- a/app/controllers/tasks_controller.rb[m
+[1m+++ b/app/controllers/tasks_controller.rb[m
+[36m@@ -28,9 +28,9 @@[m [mclass TasksController < ApplicationController[m
+   end[m
+   [m
+   def update[m
+[31m-    @task = Task.new(task_params)[m
+[32m+[m[32m    @task = Task.find(params[:id])[m
+     [m
+[31m-    if @task.save[m
+[32m+[m[32m    if @task.update(task_params)[m
+       flash[:success] = 'タスクは正常に更新されました'[m
+       redirect_to @task[m
+     else[m
+[36m@@ -53,6 +53,6 @@[m [mclass TasksController < ApplicationController[m
+   private[m
+   [m
+   def task_params[m
+[31m-    params.require(:task).permit(:content)[m
+[32m+[m[32m    params.require(:task).permit(:content, :duedate)[m
+   end[m
+ end[m
+[1mdiff --git a/app/views/tasks/index.html.erb b/app/views/tasks/index.html.erb[m
+[1mindex 9025f1b..266a503 100644[m
+[1m--- a/app/views/tasks/index.html.erb[m
+[1m+++ b/app/views/tasks/index.html.erb[m
+[36m@@ -2,7 +2,7 @@[m
+ [m
+ <ul>[m
+   <% @tasks.each do |task| %>[m
+[31m-    <li><%= link_to task.id, task %>:<%= task.content %></li>[m
+[32m+[m[32m    <li><%= link_to task.id, task %>:<%= task.content %>'→期限:'<%= task.duedate %></li>[m
+   <% end %>[m
+ </ul>[m
+ [m
+[1mdiff --git a/config/routes.rb b/config/routes.rb[m
+[1mindex b8eb83f..88961fe 100644[m
+[1m--- a/config/routes.rb[m
+[1m+++ b/config/routes.rb[m
+[36m@@ -8,5 +8,6 @@[m [mRails.application.routes.draw do[m
+   # get 'tasks', to: 'tasks#index'[m
+   # get 'tasks/new', to: 'tasks#index'[m
+   # put 'tasks/:id/edit' to: 'tasks#edit'[m
+[32m+[m[32m  root to: 'tasks#index'[m
+   resources :tasks[m
+ end[m

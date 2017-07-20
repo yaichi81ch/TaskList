@@ -4,3 +4,4 @@
 
 <%= link_to 'タスク一覧に戻る', tasks_path %>
 <%= link_to 'タスク編集ページへ移動', edit_task_path(@task) %>
+<%= link_to '削除', @task, method: :delete, data:{confirm: '本当に削除してよろしいでしょうか'} %>

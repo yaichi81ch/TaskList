@@ -1,0 +1,10 @@
+<%= form_for(task) do |f| %>
+  <%= f.label :content, 'やるべきこと' %>
+  <%= f.text_field :content %> 
+  <%= f.label :duedate, 'いつまでに？' %>
+  <%= f.date_field :duedate %> 
+  <%= f.label :status, '進捗状況' %>
+  <%= f.select :status, options_for_select(["未着手","仕掛り中","完了"]) %>
+
+  <%= f.submit '追加' %>
+<% end %>

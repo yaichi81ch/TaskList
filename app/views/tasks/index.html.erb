@@ -1,11 +1,42 @@
-<h1>タスクリスト</h1>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
 
-<ul>
-  <% @tasks.each do |task| %>
-    <li><%= link_to task.id, task %>:<%= task.content %>'→期限:'<%= task.duedate %>(<%= task.status %>)</li>
-  <% end %>
-</ul>
-
-<%= link_to '新規タスクの追加', new_task_path %>
-
+      <a class="navbar-brand" href="/">YourTaskManager</a>
+    </div>
   
+    <div id="navbar" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to 'Task List', tasks_path %></li>
+        <li><%= link_to 'Add Task', new_task_path %></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>Task</th>
+      <th>Due</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tasks.each do |task| %>
+    <tr>
+      <td><%= link_to task.id, task %></td>
+      <td><%= task.content %></td>
+      <td><%= task.duedate %></td>
+      <td><%= task.status %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%#= paginate @tasks %>

@@ -1,10 +1,19 @@
-<%= form_for(task) do |f| %>
-  <%= f.label :content, 'やるべきこと' %>
-  <%= f.text_field :content %> 
-  <%= f.label :duedate, 'いつまでに？' %>
-  <%= f.date_field :duedate %> 
-  <%= f.label :status, '進捗状況' %>
-  <%= f.select :status, options_for_select(["未着手","仕掛中","完了"]) %>
-
-  <%= f.submit '追加' %>
-<% end %>
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>やるべきこと</th>
+      <th>いつまでに？</th>
+      <th>進捗状況</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= form_for(task) do |f| %>
+    <tr>
+      <td><%= f.text_field :content %></td>
+      <td><%= f.date_field :duedate %></td>
+      <td><%= f.select :status, ["未着手","仕掛中","完了"] %></td>
+    </tr>
+    <tr><td colspan="3" style="text-align:right;"><%= f.submit '追加' %></td></tr>
+    <% end %>
+  </tbody>
+</table>

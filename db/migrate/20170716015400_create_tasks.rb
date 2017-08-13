@@ -4,6 +4,8 @@ class CreateTasks < ActiveRecord::Migration[5.0]
       t.string :content
       t.string :note
       t.string :duedate
+      
+      t.references :user, foreign_key: true
 
       t.timestamps
     end

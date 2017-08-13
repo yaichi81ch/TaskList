@@ -1,0 +1,38 @@
+<!--    <tr>-->
+      <td><%#= f.text_field :content %></td>
+      <td><%#= f.date_field :duedate %></td>
+      <td><%#= f.select :status, ["未着手","仕掛中","完了"] %></td>
+<!--    </tr>-->
+    <tr><td colspan="3" style="text-align:right;"><%#= f.submit 'Add!' %></td></tr>
+    <%# end %>
+
+<%#= form_for(task) do |f| %>
+
+  <%# if task.errors.any? %>
+<!--    <div class="alert alert-warning">-->
+<!--      <ul>-->
+        <%# task.errors.full_messages.each do |task| %>
+          <li><%#= task %></li>
+        <%# end %>
+<!--      </ul>-->
+<!--    </div>-->
+  <%# end %>
+  
+<!--  <div class="form-line col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">-->
+<!--    <div class="form-group" >-->
+      <%#= f.label :content, 'Task' %>
+      <%#= f.text_field :content, class: 'form-control'%>
+<!--    </div>-->
+<!--    <div class="form-group" >-->
+      <%#= f.label :duedate, 'Due' %>
+      <%# f.text_field :duedate, class: 'form-control'%>
+<!--    </div>-->
+<!--    <div class="form-group" >-->
+      <%#= f.label :status, 'Status' %>
+      <%#= f.text_field :status, class: 'form-control'%>
+<!--    </div>-->
+
+    
+    <%#= f.submit 'Add', class: "btn btn-primary" %>
+<!--  </div>-->
+<%# end %>

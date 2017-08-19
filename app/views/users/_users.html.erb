@@ -20,17 +20,3 @@
 <% end %>
 
 
-<div class="row">
-  <aside class="row">
-    <%= form_for(@task) do |f| %>
-      <tr class="form-line col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
-        <td><%= f.text_area :content, class: 'form-control', row: 5 %></td>
-        <td><%= f.date_field :duedate, class: 'form-control', row: 1 %></td>
-        <td><%= f.text_field :status, class: 'form-control', row: 1 %></td>
-      </tr>
-      <tr>
-        <td colspan="3" style="text-align:right"><%= f.submit 'Post', class: 'btn btn-primary btn-md' %></td>
-      </tr>
-    <% end %>
-  </aside>
-</div>

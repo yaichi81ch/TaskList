@@ -8,17 +8,22 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/">MyTaskManager</a>
+        
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav navbar-right">
-          
+
           <% if logged_in? %>
-            <li><%= link_to 'My profile', user_path(current_user) %></li>
-            <li><%= link_to 'Logout', logout_path, method: :delete %></li>
+            <%= link_to 'MyTaskManager', user_path(current_user), class: 'navbar-brand' %>
+            <ul class="nav navbar-nav navbar-right">
+              <li><%= link_to 'My profile', user_path(current_user) %></li>
+              <li><%= link_to 'Logout', logout_path, method: :delete %></li>
+            </ul>
           <% else %>
-            <li><%= link_to 'Signup', signup_path %></li>
-            <li><%= link_to 'Login', login_path %></li>
+            <%= link_to 'MyTaskManager', root_path, class: 'navbar-brand' %>
+            <ul class="nav navbar-nav navbar-right">
+              <li><%= link_to 'Signup', signup_path %></li>
+              <li><%= link_to 'Login', login_path %></li>
+            </ul>  
           <% end %>
         </ul>
       </div>

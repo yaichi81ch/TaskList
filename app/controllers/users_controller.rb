@@ -7,10 +7,13 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @tasks = @user.tasks.page(params[:page])
     counts(@user)
+    @users = User.all.page(params[:page])
+    @task = @user.tasks.new
   end
 
   def new
     @user = User.new
+    # @task = @user.task.new
   end
 
   def create
@@ -20,8 +23,18 @@ class UsersController < ApplicationController
       flash[:success] = 'ユーザを登録しました'
       redirect_to @user
     else
-      flash[:danger] = 'ユーザを登録できませんでした'
+      flash.now[:danger] = 'ユーザを登録できませんでした'
       render :new
+    end
+      
+    @task = @user.tasks.new
+    
+    if @task.save
+      flash[:success] = 'タスクを追加しました'
+      
+    else
+      flash.now[:danger] = 'タスクを追加できませんでした'
+      
     end
   end
   

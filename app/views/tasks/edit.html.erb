@@ -1,0 +1,12 @@
+<h1 class="box">Edit No.<%= @task.id %></h1>
+
+<%= form_for(@task) do |f| %>
+  <%= f.label :content, 'Task' %>
+  <%= f.text_field :content %>
+  <%= f.label :duedate, 'Due' %>
+  <%= f.text_field :duedate %>
+  <%= f.label :status, 'Status' %>
+  <%= f.text_field :status %>
+
+  <%= f.submit 'Save' %>
+<% end %>
